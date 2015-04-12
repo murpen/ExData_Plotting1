@@ -3,5 +3,5 @@ df = read.table("household_power_consumption.txt",sep=";",na.strings="?",header=
 df$Date <- dmy(df$Date)
 dh <- subset(df,Date >= ymd("2007-02-01") & Date <= ymd("2007-02-02"))
 png("plot1.png", width = 480, height = 480)
-hist(dh$Global_active_power, main = "Global Active power", col = "red", xlab = "Global Active Power (kilowatts)", )
+hist(dh$Global_active_power, main = "Global Active power", col = "red", xlab = "Global Active Power (kilowatts)")
 dev.off()
