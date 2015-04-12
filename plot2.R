@@ -1,0 +1,8 @@
+library(lubridate)
+df = read.table("household_power_consumption.txt",sep=";",na.strings="?",header=TRUE)
+df$Date <- dmy(df$Date)
+dh <- subset(df,Date >= ymd("2007-02-01") & Date <= ymd("2007-02-02"))
+dh$datetime <- dh$Date + hms(dh$Time)
+png("plot2.png", width = 480, height = 480)
+plot(dh$datetime,dh$Global_active_power,type='l',ylab='Global Active Power (kilowatts)',xlab='')
+dev.off()
